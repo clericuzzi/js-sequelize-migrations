@@ -64,7 +64,6 @@ module.exports.setColumnDefaultValueNow = async (
 	schema = 'public'
 ) => {
 	const query = `ALTER TABLE ${schema}.${tableName} ALTER COLUMN ${columnName} SET DEFAULT now();`
-	console.log(`query:`, query)
 	await queryInterface.sequelize.query(query)
 }
 
@@ -82,7 +81,6 @@ module.exports.setColumnDefaultValueNull = async (
 	schema = 'public'
 ) => {
 	const query = `ALTER TABLE ${schema}.${tableName} ALTER COLUMN ${columnName} SET DEFAULT null;`
-	console.log(`query:`, query)
 	await queryInterface.sequelize.query(query)
 }
 
@@ -100,7 +98,6 @@ module.exports.setColumnDefaultValueZero = async (
 	schema = 'public'
 ) => {
 	const query = `ALTER TABLE ${schema}.${tableName} ALTER COLUMN ${columnName} SET DEFAULT 0;`
-	console.log(`query:`, query)
 	await queryInterface.sequelize.query(query)
 }
 
@@ -118,6 +115,5 @@ module.exports.setColumnDefaultValueOne = async (
 	schema = 'public'
 ) => {
 	const query = `ALTER TABLE ${schema}.${tableName} ALTER COLUMN ${columnName} SET DEFAULT 1;`
-	console.log(`query:`, query)
 	await queryInterface.sequelize.query(query)
 }

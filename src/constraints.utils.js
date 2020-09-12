@@ -34,7 +34,7 @@ module.exports.fk = async (
 	onDelete = onDeleteUpdateActions.NONE,
 	onUpdate = onDeleteUpdateActions.NONE
 ) => {
-	const name = `fk|${tableName}:${targetTable}|${column}`
+	const name = `${tableName}|fk->${targetTable}|${column}`
 	const options = {
 		type: constraintTypes.FOREIGN_KEY,
 		name,
@@ -47,7 +47,6 @@ module.exports.fk = async (
 		onUpdate,
 	}
 
-	console.log(`fk on`, tableName, options)
 	await queryInterface.addConstraint(tableName, options)
 }
 /**
@@ -57,8 +56,7 @@ module.exports.fk = async (
  * @param  {...string} columns the list of columns that will compose the index
  */
 module.exports.unique = async (tableName, queryInterface, ...columns) => {
-	const name = `unique|${tableName}|${columns.join(`:`)}`
+	const name = `${tableName}|unique->${columns.join(`:`)}`
 	const options = { type: constraintTypes.UNIQUE, name, fields: columns }
-	console.log(`unique index on`, tableName, options)
 	await queryInterface.addConstraint(tableName, options)
 }
