@@ -1,0 +1,6 @@
+.npmrc
+.gitignore
+.npmignore
+README.md
+package.json
+package-lock.json

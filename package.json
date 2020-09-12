@@ -1,0 +1,23 @@
+{
+	"name": "@clericuzzi/js-sequelize-migrations",
+	"version": "1.0.1",
+	"description": "A js lib to standardize the sequelize's database management",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/clericuzzi/js-sequelize.git"
+	},
+	"author": "Pedro Clericuzzi <pedroclericuzzi@gmail.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/clericuzzi/js-sequelize/issues"
+	},
+	"homepage": "https://github.com/clericuzzi/js-sequelize#readme",
+	"dependencies": {
+		"sequelize": "^6.3.4"
+	},
+	"devDependencies": {}
+}
