@@ -1,4 +1,5 @@
 const { QueryInterface } = require('sequelize')
+const { newIndex } = require('./indices.utils')
 
 const onDeleteUpdateActions = {
 	NONE: `NO ACTION`,
@@ -48,6 +49,7 @@ module.exports.fk = async (
 	}
 
 	await queryInterface.addConstraint(tableName, options)
+	await newIndex(tableName, queryInterface, column)
 }
 /**
  * adds a unique constraint to the table

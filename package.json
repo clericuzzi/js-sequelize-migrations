@@ -1,6 +1,6 @@
 {
 	"name": "@clericuzzi/js-sequelize-migrations",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "A js lib to standardize the sequelize's database management",
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/"
