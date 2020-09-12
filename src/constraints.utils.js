@@ -22,6 +22,8 @@ const constraintTypes = {
  * @param {string} targetTable the referenced table
  * @param {string} targetPkColumn the referenced table's PK column
  * @param {QueryInterface} queryInterface the query interface that will manage the data manipulation
+ * @param {'NO ACTION'|'SET NULL'|'SET DEFAULT'|'CASCADE'} onDelete the on_delete action
+ * @param {'NO ACTION'|'SET NULL'|'SET DEFAULT'|'CASCADE'} onUpdate the on_update action
  */
 module.exports.fk = async (
 	tableName,
