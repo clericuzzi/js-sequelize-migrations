@@ -7,7 +7,8 @@ const { QueryInterface } = require('sequelize')
  * @param {QueryInterface} queryInterface the query interface that will manage the data manipulation
  */
 module.exports.is_deleted = async (tableName, queryInterface) => {
-	await queryInterface.addIndex(tableName, [`is_deleted`])
+	const name = `ix|${tableName}|is_deleted`
+	await queryInterface.addIndex(tableName, [`is_deleted`], { name })
 }
 
 /**
@@ -17,7 +18,8 @@ module.exports.is_deleted = async (tableName, queryInterface) => {
  * @param  {...string} columns the list of columns that will compose the index
  */
 module.exports.newIndex = async (tableName, queryInterface, ...columns) => {
-	await queryInterface.addIndex(tableName, columns)
+	const name = `ix|${tableName}|${columns.join(`:`)}`
+	await queryInterface.addIndex(tableName, columns, { name })
 }
 
 /**
@@ -27,7 +29,7 @@ module.exports.newIndex = async (tableName, queryInterface, ...columns) => {
  * @param  {...string} columns the list of columns that will compose the index
  */
 module.exports.unique = async (tableName, queryInterface, ...columns) => {
-	const name = `${tableName}_${columns.join(`_`)}_unique`
+	const name = `unique|${tableName}|${columns.join(`:`)}`
 	const options = { type: `unique`, name, fields: columns }
 	await queryInterface.addConstraint(tableName, options)
 }
